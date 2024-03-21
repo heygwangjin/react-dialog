@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import * as React from "react";
+import { ButtonProps } from "./types";
 
 const buttonCss = css({
   borderRadius: "8px",
@@ -18,12 +18,6 @@ const buttonCss = css({
     outline: "4px auto -webkit-focus-ring-color",
   },
 });
-
-interface ButtonProps {
-  onClick?: () => void;
-  type?: "button" | "submit" | "reset";
-  children: React.ReactNode;
-}
 
 function Button({
   onClick,
