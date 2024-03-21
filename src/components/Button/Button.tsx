@@ -19,21 +19,23 @@ const buttonCss = css({
   },
 });
 
+interface ButtonProps {
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+  children: React.ReactNode;
+}
+
 function Button({
   onClick,
   type = "button",
   children,
   ...delegated
-}: {
-  onClick?: () => void;
-  type?: "button" | "submit" | "reset";
-  children: React.ReactNode;
-}) {
+}: ButtonProps) {
   return (
     <button css={buttonCss} onClick={onClick} type={type} {...delegated}>
       {children}
     </button>
-  )
+  );
 }
 
 export default Button;

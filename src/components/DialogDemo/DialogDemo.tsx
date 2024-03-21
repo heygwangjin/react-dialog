@@ -8,7 +8,7 @@ function DialogDemo() {
       <p>Click the button to open the dialog.</p>
       <Button>Open Dialog</Button>
     </div>
-  )
+  );
 }
 
 export default DialogDemo;
