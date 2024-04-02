@@ -1,7 +1,8 @@
-import * as React from "react";
-import { DialogProps } from "./types";
-import useDialog from "../../hooks/use-dialog";
 import { css } from "@emotion/react";
+import * as React from "react";
+import ReactFocusLock from "react-focus-lock";
+import useDialog from "../../hooks/use-dialog";
+import { DialogProps } from "./types";
 
 const dialogCss = css({
   padding: 20,
@@ -42,7 +43,7 @@ function Dialog({ children }: DialogProps) {
         }
       }}
     >
-      {children}
+      <ReactFocusLock>{children}</ReactFocusLock>
     </dialog>
   );
 }
