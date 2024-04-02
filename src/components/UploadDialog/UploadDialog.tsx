@@ -8,11 +8,42 @@ function UploadDialog({ uploadFile, title }: UploadDialogProps) {
 
   return (
     <Dialog>
-      <h1>Upload {title}</h1>
-      <Button onClick={uploadFile}>Upload</Button>
-      <Button onClick={closeDialog}>
-        Cancel
-      </Button>
+      <h1
+        css={{
+          fontSize: "1.5rem",
+          marginBottom: "2rem",
+        }}
+      >
+        Upload {title}
+      </h1>
+      <p
+        css={{
+          border: "2px dashed #ccc",
+          padding: "6rem",
+          marginBottom: "2rem",
+        }}
+      >
+        Drag and drop a file to upload.
+      </p>
+      <div
+        css={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "1rem",
+        }}
+      >
+        <Button
+          onClick={uploadFile}
+          css={{
+            width: "100%",
+            backgroundColor: "green",
+            color: "white",
+          }}
+        >
+          Upload
+        </Button>
+        <Button onClick={closeDialog}>Cancel</Button>
+      </div>
     </Dialog>
   );
 }
