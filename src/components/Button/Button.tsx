@@ -1,3 +1,5 @@
+import React from "react";
+
 import { css } from "@emotion/react";
 import { ButtonProps } from "./types";
 
@@ -19,17 +21,21 @@ const buttonCss = css({
   },
 });
 
-function Button({
-  onClick,
-  type = "button",
-  children,
-  ...delegated
-}: ButtonProps) {
+function Button(
+  { onClick, type = "button", children, ...delegated }: ButtonProps,
+  ref: React.Ref<HTMLButtonElement>,
+) {
   return (
-    <button css={buttonCss} onClick={onClick} type={type} {...delegated}>
+    <button
+      ref={ref}
+      css={buttonCss}
+      onClick={onClick}
+      type={type}
+      {...delegated}
+    >
       {children}
     </button>
   );
 }
 
-export default Button;
+export default React.forwardRef(Button);

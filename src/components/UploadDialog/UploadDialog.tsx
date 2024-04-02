@@ -1,3 +1,5 @@
+import React from "react";
+
 import useDialog from "../../hooks/use-dialog";
 import Button from "../Button";
 import Dialog from "../Dialog";
@@ -5,6 +7,14 @@ import { UploadDialogProps } from "./types";
 
 function UploadDialog({ uploadFile, title }: UploadDialogProps) {
   const { closeDialog } = useDialog();
+
+  const cancelBtnRef = React.useRef<HTMLButtonElement | null>(null);
+
+  React.useEffect(() => {
+    if (cancelBtnRef.current) {
+      cancelBtnRef.current.focus();
+    }
+  }, []);
 
   return (
     <Dialog>
@@ -42,7 +52,9 @@ function UploadDialog({ uploadFile, title }: UploadDialogProps) {
         >
           Upload
         </Button>
-        <Button onClick={closeDialog}>Cancel</Button>
+        <Button ref={cancelBtnRef} onClick={closeDialog}>
+          Cancel
+        </Button>
       </div>
     </Dialog>
   );
