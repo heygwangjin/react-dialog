@@ -69,7 +69,9 @@ function DragNDrop({
     <section
       css={{
         padding: "1rem",
-        border: `2px dashed ${dragging ? "#646cff" : "#ccc"}`,
+        border: `2px dashed ${
+          dragging || files.length > 0 ? "#646cff" : "#ccc"
+        }`,
         borderRadius: "8px",
       }}
     >
