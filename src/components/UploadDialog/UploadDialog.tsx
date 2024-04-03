@@ -48,6 +48,12 @@ function UploadDialog({ uploadFile, title }: UploadDialogProps) {
             width: "100%",
             backgroundColor: "green",
             color: "white",
+            "&:hover": {
+              backgroundColor: "darkgreen",
+            },
+            "&:focus": {
+              backgroundColor: "darkgreen",
+            },
           }}
         >
           Upload
