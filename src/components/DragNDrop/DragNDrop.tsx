@@ -21,6 +21,11 @@ function DragNDrop({
 
     const newFiles = Array.from(droppedFiles);
 
+    if (newFiles.some((file) => !supportedFileTypes.includes(file.type))) {
+      alert("Unsupported file type.");
+      throw new Error("Unsupported file type.");
+    }
+
     // Prevent adding the same file multiple times
     const uniqueFiles = newFiles.filter((newFile) =>
       files.every((file) => file.name !== newFile.name),
