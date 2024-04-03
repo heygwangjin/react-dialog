@@ -4,9 +4,11 @@ import useDialog from "../../hooks/use-dialog";
 import Button from "../Button";
 import Dialog from "../Dialog";
 import { UploadDialogProps } from "./types";
+import DragNDrop from "../DragNDrop";
 
 function UploadDialog({ uploadFile, title }: UploadDialogProps) {
   const { closeDialog } = useDialog();
+  const [files, setFiles] = React.useState<File[]>([]);
 
   const cancelBtnRef = React.useRef<HTMLButtonElement | null>(null);
 
@@ -20,23 +22,18 @@ function UploadDialog({ uploadFile, title }: UploadDialogProps) {
     <Dialog>
       <h1
         css={{
+          display: "flex",
+          justifyContent: "left",
           fontSize: "1.5rem",
-          marginBottom: "2rem",
+          marginBottom: "1rem",
         }}
       >
         Upload {title}
       </h1>
-      <p
-        css={{
-          border: "2px dashed #ccc",
-          padding: "6rem",
-          marginBottom: "2rem",
-        }}
-      >
-        Drag and drop a file to upload.
-      </p>
+      <DragNDrop onFileSelected={setFiles} width="40rem" height="20rem" />
       <div
         css={{
+          marginTop: "2rem",
           display: "flex",
           justifyContent: "space-between",
           gap: "1rem",

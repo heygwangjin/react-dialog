@@ -11,7 +11,7 @@ function DialogDemo() {
       <Button
         onClick={() =>
           openDialog("UploadDialog", {
-            title: "File",
+            title: "Files",
             uploadFile: () => {
               console.log("Uploading file...");
               closeDialog();
