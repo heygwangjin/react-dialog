@@ -6,7 +6,7 @@ import Dialog from "../Dialog";
 import { UploadDialogProps } from "./types";
 import DragNDrop from "../DragNDrop";
 
-function UploadDialog({ uploadFile, title }: UploadDialogProps) {
+function UploadDialog({ title }: UploadDialogProps) {
   const { closeDialog } = useDialog();
   const [files, setFiles] = React.useState<File[]>([]);
 
@@ -40,7 +40,10 @@ function UploadDialog({ uploadFile, title }: UploadDialogProps) {
         }}
       >
         <Button
-          onClick={uploadFile}
+          onClick={() => {
+            alert("Files uploaded successfully!");
+            closeDialog();
+          }}
           css={{
             width: "100%",
             backgroundColor: "green",

@@ -2,7 +2,7 @@ import useDialog from "../../hooks/use-dialog";
 import Button from "../Button";
 
 function DialogDemo() {
-  const { openDialog, closeDialog } = useDialog();
+  const { openDialog } = useDialog();
 
   return (
     <div>
@@ -12,10 +12,6 @@ function DialogDemo() {
         onClick={() =>
           openDialog("UploadDialog", {
             title: "Files",
-            uploadFile: () => {
-              console.log("Uploading file...");
-              closeDialog();
-            },
           })
         }
       >
