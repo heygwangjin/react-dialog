@@ -10,7 +10,7 @@ function DragNDrop({
   supportedFileTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"],
 }: DragNDropProps) {
   const [files, setFiles] = React.useState<File[]>([]);
-  const [dragging, setDragging] = React.useState(false);
+  const [isDragging, setIsDragging] = React.useState(false);
 
   function handleDrop(event: React.DragEvent<HTMLDivElement>): void {
     event.preventDefault();
@@ -70,7 +70,7 @@ function DragNDrop({
       css={{
         padding: "1rem",
         border: `2px dashed ${
-          dragging || files.length > 0 ? "#646cff" : "#ccc"
+          isDragging || files.length > 0 ? "#646cff" : "#ccc"
         }`,
         borderRadius: "8px",
       }}
@@ -87,9 +87,9 @@ function DragNDrop({
         onDrop={handleDrop}
         onDragOver={(event) => {
           event.preventDefault();
-          setDragging(true);
+          setIsDragging(true);
         }}
-        onDragLeave={() => setDragging(false)}
+        onDragLeave={() => setIsDragging(false)}
       >
         <p>
           Drag and drop your files here, or{" "}
